@@ -1,4 +1,3 @@
-#include <Arduino.h>
 #include "LedBlinker.h"
 
 LedBlinker::LedBlinker(int ledPin)

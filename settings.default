@@ -1,0 +1,8 @@
+/* RENAME THIS FILE TO settings.h */
+#ifndef SETTINGS_H
+#define SETTINGS_H
+
+const char *ssid = "Put your Wifi Network SSID here";
+const char *password = "wifi password here";
+
+#endif
