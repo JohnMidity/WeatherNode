@@ -8,10 +8,13 @@ class LedBlinker : public Module
 private:
   int _ledPin, _ledState;
   unsigned long _previousMillis;
-  long _interval;
+  long _interval, _onInterval, _offInterval;
+  void setup(int ledPin, int onInterval, int offInterval);
 
 public:
   LedBlinker(int ledPin);
+  LedBlinker(int ledPin, int interval);
+  LedBlinker(int ledPin, int onInterval, int offInterval);
   void moduleLoop();
 };
 #endif

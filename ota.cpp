@@ -4,8 +4,6 @@
 
 OTA::OTA()
 {
-    Serial.println("Construct");
-
     ArduinoOTA.onStart([]() {
         Serial.println("Start");
     });
