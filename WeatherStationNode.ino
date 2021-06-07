@@ -1,8 +1,8 @@
+#include <ESP8266WiFi.h>
 #include "settings.h"
 #include "module.h"
 #include "LedBlinker.h"
 #include "ota.h"
-#include <ESP8266WiFi.h>
 
 void setup() {
     const char version[] = "build "  __DATE__ " " __TIME__;
