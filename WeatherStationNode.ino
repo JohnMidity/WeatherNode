@@ -3,6 +3,7 @@
 #include "module.h"
 #include "LedBlinker.h"
 #include "ota.h"
+#include "WebServer.h"
 
 void setup() {
     const char version[] = "build "  __DATE__ " " __TIME__;
@@ -23,6 +24,7 @@ void setup() {
     Module* m = Module::addModule(new LedBlinker(LED_BUILTIN, 500, 250));
     Module::addModule(new LedBlinker(LED_BUILTIN_AUX, 1000, 100));
     Module::addModule(new OTA());
+    Module::addModule(new WebServer());
 }
 
 void loop() {
