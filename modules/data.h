@@ -6,8 +6,14 @@
 class Data : public Module
 {
 private:
+    struct
+    {
+        char WifiSSID[20] = "";
+        char WifiPW[20] = "";
+    } data;
 
 public:
+  Data();
   void moduleLoop();
 };
 #endif
