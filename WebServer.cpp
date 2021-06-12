@@ -16,8 +16,8 @@ void WebServer::moduleLoop()
 
 void WebServer::handleRoot()
 {
-    digitalWrite(13, 1);
+    digitalWrite(LED_BUILTIN, LOW);
     server.send(200, "text/plain", "Hello from weatherstation!\r\n");
-    digitalWrite(13, 0);
+    digitalWrite(LED_BUILTIN, HIGH);
 }
 

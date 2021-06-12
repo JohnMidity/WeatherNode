@@ -6,14 +6,6 @@
 #include "WebServer.h"
 #include "data.h"
 
-void addRunModules()
-{
-    Module *dataModule = Module::addModule(new Data());
-    Module::addModule(new LedBlinker(LED_BUILTIN, 100, 900));
-    Module::addModule(new OTA());
-    Module::addModule(new WebServer());
-}
-
 void setup() {
     const char version[] = "build "  __DATE__ " " __TIME__;
     Serial.begin(115200);
@@ -29,9 +21,17 @@ void setup() {
     }
     Serial.println("Connected.");
 
-    addRunModules();
+    addModules();
 }
 
 void loop() {
     Module::loopAll();
+}
+
+void addModules()
+{
+    Module *dataModule = Module::addModule(new Data());
+    Module::addModule(new LedBlinker(LED_BUILTIN, 25, 9975));
+    Module::addModule(new OTA());
+    Module::addModule(new WebServer());
 }
