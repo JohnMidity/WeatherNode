@@ -38,12 +38,12 @@ void LedBlinker::moduleLoop()
     if (_ledState == LOW)
     {
       _ledState = HIGH;
-      _interval = _onInterval;
+      _interval = _offInterval;
     }
     else
     {
       _ledState = LOW;
-      _interval = _offInterval;
+      _interval = _onInterval;
     }
 
     // set the LED with the ledState of the variable:

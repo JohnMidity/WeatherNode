@@ -4,7 +4,15 @@
 #include "LedBlinker.h"
 #include "ota.h"
 #include "WebServer.h"
-#include "modules/data.h"
+#include "data.h"
+
+void addRunModules()
+{
+    Module *dataModule = Module::addModule(new Data());
+    Module::addModule(new LedBlinker(LED_BUILTIN, 100, 900));
+    Module::addModule(new OTA());
+    Module::addModule(new WebServer());
+}
 
 void setup() {
     const char version[] = "build "  __DATE__ " " __TIME__;
@@ -26,13 +34,4 @@ void setup() {
 
 void loop() {
     Module::loopAll();
-}
-
-void addRunModules()
-{
-    Module *dataModule = Module::addModule(new Data());
-    Module::addModule(new LedBlinker(LED_BUILTIN, 500, 250));
-    Module::addModule(new LedBlinker(LED_BUILTIN_AUX, 1000, 100));
-    Module::addModule(new OTA());
-    Module::addModule(new WebServer());
 }

@@ -1,7 +1,7 @@
 #ifndef DATA_H
 #define DATA_H
 
-#include "../module.h"
+#include "module.h"
 
 class Data : public Module
 {
