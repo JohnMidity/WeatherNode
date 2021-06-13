@@ -3,6 +3,7 @@
 #include <DHT.h>
 
 #include "settings.h"
+#include "WiFiModule.h"
 #include "module.h"
 #include "LedBlinker.h"
 #include "ota.h"
@@ -20,15 +21,6 @@ void setup()
     Serial.println("");
     Serial.println(version);
 
-    WiFi.mode(WIFI_STA);
-    WiFi.begin(ssid, password);
-    while (WiFi.waitForConnectResult() != WL_CONNECTED)
-    {
-        Serial.println("Waiting for WIFI connection...");
-        delay(2000);
-    }
-    Serial.println("Connected.");
-
     addModules();
 }
 
@@ -39,6 +31,8 @@ void loop()
 
 void addModules()
 {
+    Module::addModule(new WiFiModule(ssid, password));
+
     Module *dataModule = Module::addModule(new Data());
     Module::addModule(new LedBlinker(LED_BUILTIN, 15, 9985));
     Module::addModule(new OTA());
