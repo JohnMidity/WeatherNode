@@ -13,8 +13,9 @@
 #define DHTPIN D5
 #define DHTTYPE DHT22
 
-void setup() {
-    const char version[] = "build "  __DATE__ " " __TIME__;
+void setup()
+{
+    const char version[] = "build " __DATE__ " " __TIME__;
     Serial.begin(115200);
     Serial.println("");
     Serial.println(version);
@@ -31,7 +32,8 @@ void setup() {
     addModules();
 }
 
-void loop() {
+void loop()
+{
     Module::loopAll();
 }
 
